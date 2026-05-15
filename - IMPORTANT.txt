@@ -1,0 +1,17 @@
+name:
+Group 6
+key:
+k0jgsqo8vc
+
+logger status website:
+https://opendlv.io/
+log file website:
+https://opendlv.io/k0jgsqo8vc/logs
+log file download website:
+https://opendlv.io/k0jgsqo8vc/log/LOGFILENAME.csv 
+
+First Logging Session:
+Friday, May 8th, 2026
+Useful recordings from the park:
+ts_1778241869.log,1305763
+ts_1778239915.log,1939626

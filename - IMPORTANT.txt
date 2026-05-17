@@ -15,3 +15,23 @@ Friday, May 8th, 2026
 Useful recordings from the park:
 ts_1778241869.log,1305763
 ts_1778239915.log,1939626
+
+Data rate:
+There a 2 different timing systems for the logger
+1. A GPS time (coarse), 1Hz resolution, 1 second at a time
+2. An IMU tick time (highres), microseconds relative to the last GPS sync event
+
+For accelerometer:
+100Hz
+1,000,000 ticks ≈ 1 second
+1 tick = 1 microsecond
+delta tick (the amount of ticks that pass between each measurement) is inconsistent
+
+For gyroscope:
+20Hz
+
+For rotational:
+10Hz
+
+425860177
+519857168

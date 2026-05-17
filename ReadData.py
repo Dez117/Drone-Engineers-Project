@@ -1,6 +1,7 @@
 import csv
 import numpy as np
 import time
+from CropData import crop_data
 
 # - - - Interpret and sort data by sensor- - -
 def read_data(data_file):
@@ -67,6 +68,7 @@ if __name__ == "__main__": # this stops the code below from running from other f
 
     data_file = "Log Files/ts_1778241869.csv"
     log = read_data(data_file) 
+    #log = crop_data(log, 100, 200)
 
     sensor = log["rotation"]
     epoch = sensor["epoch"]

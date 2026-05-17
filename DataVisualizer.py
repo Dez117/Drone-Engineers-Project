@@ -31,14 +31,14 @@ def plot_data(data):
 
     # - Plot Accelerometer -
     accel = data["accel"]
-    accel_timestamps = accel["tick_us"]
+    accel_timestamps = accel["time"]
 
     axs[1].plot(accel_timestamps, accel["x"], linewidth=linewidth, label="X")
     axs[1].plot(accel_timestamps, accel["y"], linewidth=linewidth, label="Y")
     axs[1].plot(accel_timestamps, accel["z"], linewidth=linewidth, label="Z")
 
     axs[1].set_title(" Acceleration ")
-    axs[1].set_xlabel(" Ticks ")
+    axs[1].set_xlabel(" seconds ")
     axs[1].set_ylabel(" m/s^2 ")
     axs[1].legend()
     axs[1].grid(True)
@@ -46,13 +46,13 @@ def plot_data(data):
 
     # - Plot Gyro -
     gyro = data["gyro"]
-    gyro_timestamps = gyro["tick_us"]
+    gyro_timestamps = gyro["time"]
 
     axs[2].plot(gyro_timestamps, gyro["roll"], linewidth=linewidth, label="Roll")
     axs[2].plot(gyro_timestamps, gyro["pitch"], linewidth=linewidth, label="Pitch")
     axs[2].plot(gyro_timestamps, gyro["yaw"], linewidth=linewidth, label="Yaw")
     axs[2].set_title(" Orientation ")
-    axs[2].set_xlabel(" Ticks ")
+    axs[2].set_xlabel(" seconds ")
     axs[2].set_ylabel(" rad/s ")
     axs[2].legend()
     axs[2].grid(True)
@@ -99,6 +99,7 @@ data_file_1 = "Log Files/ts_1778241869.csv"
 data_file_2 = "Log Files/ts_1778239915.csv"
 
 log = read_data(data_file_1)
+#log = crop_data(log, 300, 320)
 
 minutes, seconds = divmod(log["meta"]["duration"], 60)
 print(f"Logging lasted: {minutes} minutes and {seconds} seconds")

@@ -10,7 +10,7 @@ from CropData import crop_data
 
 # - - - Plotting - - -
 def plot_data(data):
-    fig, axs = plt.subplots(3, 1, figsize=(10, 10))  # 3 rows, 1 column
+    fig, axs = plt.subplots(3, 1, figsize=(7, 7))  # 3 rows, 1 column
     linewidth = 0.5
 
     duration = data["meta"]["duration"]
@@ -74,9 +74,9 @@ def plot_gnss_track(data):
     x, y = transformer.transform(longitudes, latitudes)
     x, y = np.array(x), np.array(y)
 
-    fig, ax = plt.subplots(figsize=(8, 10))
-    ax.plot(x, y, color="blue", linewidth=1, alpha=0.7, zorder=3)
-    sc = ax.scatter(x, y, c=speeds, s=4, cmap="plasma", zorder=2)
+    fig, ax = plt.subplots(figsize=(6, 7))
+    ax.plot(x, y, color="grey", linewidth=1, alpha=0.7, zorder=2)
+    sc = ax.scatter(x, y, c=speeds, s=6, cmap="plasma", zorder=3)
     ctx.add_basemap(ax, source=ctx.providers.Esri.WorldImagery, zoom=18)
     #ctx.add_basemap(ax, source=ctx.providers.CartoDB.Positron, zoom=14) # need this for the demo data to load
     ax.set_aspect("equal", adjustable="box")
@@ -94,12 +94,14 @@ def plot_gnss_track(data):
 
 
 # - - - Test code - - -
-demo_file = "Log Files/demo.csv"
-data_file_1 = "Log Files/ts_1778241869.csv"
-data_file_2 = "Log Files/ts_1778239915.csv"
+data_file_1 = "Log Files/ts_1778239915.csv"
+data_file_2 = "Log Files/ts_1778241869.csv"
+log1 = read_data(data_file_1)
 
-log = read_data(data_file_1)
-#log = crop_data(log, 300, 320)
+
+log = log1
+
+print(log["accel"]["time"])
 
 minutes, seconds = divmod(log["meta"]["duration"], 60)
 print(f"Logging lasted: {minutes} minutes and {seconds} seconds")

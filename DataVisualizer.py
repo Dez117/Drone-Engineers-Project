@@ -75,8 +75,8 @@ def plot_gnss_track(data):
     x, y = np.array(x), np.array(y)
 
     fig, ax = plt.subplots(figsize=(6, 7))
-    ax.plot(x, y, color="grey", linewidth=1, alpha=0.7, zorder=2)
-    sc = ax.scatter(x, y, c=speeds, s=6, cmap="plasma", zorder=3)
+    ax.plot(x, y, color="white", linewidth=1, alpha=0.7, zorder=2)
+    sc = ax.scatter(x, y, c=speeds, s=60, cmap="plasma", zorder=3)
     ctx.add_basemap(ax, source=ctx.providers.Esri.WorldImagery, zoom=18)
     #ctx.add_basemap(ax, source=ctx.providers.CartoDB.Positron, zoom=14) # need this for the demo data to load
     ax.set_aspect("equal", adjustable="box")
@@ -100,8 +100,7 @@ log1 = read_data(data_file_1)
 
 
 log = log1
-
-print(log["accel"]["time"])
+log = crop_data(log, 491, 498)
 
 minutes, seconds = divmod(log["meta"]["duration"], 60)
 print(f"Logging lasted: {minutes} minutes and {seconds} seconds")

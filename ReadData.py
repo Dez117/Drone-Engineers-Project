@@ -78,7 +78,7 @@ if __name__ == "__main__": # this stops the code below from running from other f
 
     for i in range(len(sensor["tick"])):
         print("epoch: ", epoch[i])
-        print("tick: ", tick[i]/1000000)
+        print("tick: ", tick[i])
         print("Time: ", time_s[i])
         print("=================")
         time.sleep(0.1)

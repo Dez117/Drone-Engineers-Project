@@ -66,11 +66,11 @@ def read_data(data_file):
 # - - - Test code - - -
 if __name__ == "__main__": # this stops the code below from running from other files
 
-    data_file = "Log Files/ts_1778241869.csv"
+    data_file = "Log Files/ts_1778239915.csv"
     log = read_data(data_file) 
     #log = crop_data(log, 100, 200)
 
-    sensor = log["rotation"]
+    sensor = log["gyro"]
     epoch = sensor["epoch"]
     tick = sensor["tick"]
     time_s = sensor["time"]

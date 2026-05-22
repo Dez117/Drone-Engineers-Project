@@ -100,7 +100,8 @@ log1 = read_data(data_file_1)
 
 
 log = log1
-log = crop_data(log, 491, 498)
+log = crop_data(log, 450, 580)
+#log = crop_data(log, 491, 498)
 
 minutes, seconds = divmod(log["meta"]["duration"], 60)
 print(f"Logging lasted: {minutes} minutes and {seconds} seconds")
